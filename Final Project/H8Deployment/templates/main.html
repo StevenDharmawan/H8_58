@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H8 Model Deployment</title>
+</head>
+<body>
+
+    <div class="form">
+        <h1>Hacktiv8 Titanic Prediction</h1>
+
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="number" name="pclass" placeholder="Pclass (1 = 1st, 2 = 2nd, 3 = 3rd)" required="required" />
+            <input type="number" name="age" placeholder="Age" required="required" />
+            <input type="number" name="sib" placeholder="Siblings / spouses aboard the Titanic" required="required" />
+            <input type="number" name="par" placeholder="Parents / children aboard the Titanic" required="required" />
+            <input type="number" name="fare" placeholder="Fare" required="required" />
+            <input type="number" name="embarked" placeholder="Port of Embarkation (0 = C, 1 = Q, 2 = S)" required="required" />
+            <input type="number" name="gender" placeholder="Gender (0 = Female, 1 = Male)" required="required" />
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <p class="message">{{ prediction_text }}</p>
+    </div>
+
+</body>
+</html>
